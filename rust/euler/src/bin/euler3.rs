@@ -1,26 +1,25 @@
-fn factors(num: i64) -> Vec<i64>{
-    let mut res = vec![];
-    for i in 2..num{
-        if num % i == 0{
-            res.push(i);
+fn is_prime(n: u64) -> bool {
+        (2..n).all(|divisor| n % divisor != 0)
+}
+fn first_factor(n: u64) -> u64{
+    for i in 2..n{
+        if n % i == 0{
+            return i;
         }
     }
-    res
+    return 1;
 }
-
-fn is_prime(num: i64) -> bool{
-    for i in 2..num{
-        if num % i == 0{
-            return true
+fn faster(n: u64) -> u64{
+    let mut i: u64 = n;
+    while i != 1{
+        if is_prime(i){
+            return i;
         }
+        let first = first_factor(i);
+        i /= first;
     }
-    return false
-}
-
-fn solve(num: i64) -> Vec<i64>{
-    factors(num).into_iter().filter(|&e| is_prime(e)).collect::<Vec<_>>()
+    return 1u64;
 }
 fn main(){
-    let temp = solve(600851475143);
-    println!("{}", temp.last().unwrap())
+    println!("{}", faster(600851475143))
 }
