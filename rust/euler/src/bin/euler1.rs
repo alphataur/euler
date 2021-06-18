@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 fn solve() -> i64{
     let mut a: i64 = 0;
     for i in 1..1000{
@@ -8,6 +9,10 @@ fn solve() -> i64{
     a
 }
 
+fn range_solve() -> i64{
+    (1..1000).filter(|e| e % 3 == 0 || e % 5 == 0).sum()
+}
+
 fn main(){
-    println!("{}", solve())
+    println!("{}", range_solve())
 }
