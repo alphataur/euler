@@ -1,4 +1,4 @@
-(ns eulerclj.euler2
+(ns eulerclj.bst
   (:gen-class))
 
 (defrecord Node [el left right])
