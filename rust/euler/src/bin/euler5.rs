@@ -8,13 +8,33 @@
 //    })
 //    .find( |&x| x > 10 ) );
 //}
-fn solve(){
-    let res = (0..=10).scan(0, | a, e|{
-        *a = *a + e;
-        Some(*a)
-    });
-    println!("{:?}", res.max());
+
+type Binop = fn(u64, u64) -> u64;
+
+fn gcd(a: u64, b: u64) -> u64{
+    if b == 0{
+        a
+    }
+    else{
+        gcd(b, a % b)
+    }
 }
+
+fn lcm(a: u64, b: u64) -> u64{
+    (a * b) / gcd(a, b)
+}
+
+
+fn reductions(start: u64, end: u64) -> u64{
+    let mut acc: u64 = 1;
+    for i in start..end{
+        acc = lcm(i, acc);
+    }
+    acc
+}
+
+
 fn main(){
-    solve();
+    //println!("{}", lcm(1920, 1080))
+    println!("{}", reductions(1, 10));
 }
