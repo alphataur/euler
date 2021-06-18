@@ -36,5 +36,5 @@ fn reductions(start: u64, end: u64) -> u64{
 
 fn main(){
     //println!("{}", lcm(1920, 1080))
-    println!("{}", reductions(1, 10));
+    println!("{}", reductions(1, 20));
 }
