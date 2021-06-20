@@ -1,11 +1,26 @@
 (ns eulerclj.euler6
   (:gen-class))
 
-(defn solve []
-  (reduce + (map #(* 2 (reduce * %)) (partition 2 1 (range 1 11))))
+(defn square-sum [upper-bound]
+  (let [i (/ (* upper-bound (inc upper-bound)) 2)]
+    (* i i)
+  )
 )
+
+(defn sum-square [upper-bound]
+  (
+   ->> (range (inc upper-bound))
+   (map #(* % %))
+   (reduce +)
+  )
+)
+
+(defn naive-solver [upper-bound]
+  (- (square-sum upper-bound) (sum-square upper-bound))
+)
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println (solve))
+  (println (naive-solver 100))
 )
