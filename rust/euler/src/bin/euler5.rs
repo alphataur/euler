@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 //fn solve(){
 //println!("{:?}", (0..10)
 //    // `&mut acc` in the parameter position extracts `acc` out of a mutable ref,
@@ -9,7 +10,7 @@
 //    .find( |&x| x > 10 ) );
 //}
 
-type Binop = fn(u64, u64) -> u64;
+
 
 fn gcd(a: u64, b: u64) -> u64{
     if b == 0{
@@ -25,6 +26,9 @@ fn lcm(a: u64, b: u64) -> u64{
 }
 
 
+fn solve(start: u64, end: u64) -> u64{
+    (start..end).fold(1, lcm)
+}
 fn reductions(start: u64, end: u64) -> u64{
     let mut acc: u64 = 1;
     for i in start..end{
@@ -33,8 +37,7 @@ fn reductions(start: u64, end: u64) -> u64{
     acc
 }
 
-
 fn main(){
     //println!("{}", lcm(1920, 1080))
-    println!("{}", reductions(1, 20));
+    println!("{}", solve(1, 20));
 }
