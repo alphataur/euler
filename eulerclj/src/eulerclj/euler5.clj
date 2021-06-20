@@ -25,4 +25,4 @@
 (defn -main
   "probably the slickest solution in clojure i've produced till now"
   [& args]
-  (println (last (reductions lcm (range 1 20)))))
+  (println (reduce lcm (range 1 10))))
