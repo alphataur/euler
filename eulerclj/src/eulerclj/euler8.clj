@@ -8,11 +8,6 @@
   (Character/digit n 10)
 )
 
-
-
-
-
-
 (defn folder [arr]
   (->> arr
        (map to-digit)
