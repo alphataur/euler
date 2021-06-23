@@ -23,6 +23,5 @@ def prime_gen():
 
 a = prime_gen()
 for i in range(10001):
-    print(i)
     res = next(a)
 print(res)
