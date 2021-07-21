@@ -14,6 +14,7 @@ fn sieve_of_erat() -> [bool; 1999999]{
     sieve
 }
 
+
 fn main(){
 
     let x = sieve_of_erat();
