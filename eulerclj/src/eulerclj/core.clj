@@ -2,6 +2,6 @@
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Nikhil Surya Mukhi"
   [& args]
-  (println "Hello, World!"))
+  (println "seriously who am I ?"))
